@@ -1,2 +1,2 @@
 import roboter.contoller.conversation
-roboter.contoroller
+roboter.contoroller.conversation.talk_about_restaurant()
