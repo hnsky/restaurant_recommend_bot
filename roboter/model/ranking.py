@@ -53,4 +53,9 @@ class RankingModel(CsvModel):
             dict: Returns ranking data of dict type.
         """
         with open(self.csv_file, 'r') as csv_file:
-            reader - csv.DictReader(csv_file)
+            reader = csv.DictReader(csv_file)
+            for row in reader:
+                self.data[row[RANKING_COLUMN_NAME]] = int(
+                    row[RANKING_COLUMN_COUNT]
+                )
+            return self.data
