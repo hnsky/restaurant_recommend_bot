@@ -1,3 +1,3 @@
-import roboter.contoller.conversation
+import roboter.controller.conversation
 
-roboter.contoroller.conversation.talk_about_restaurant()
+roboter.controller.conversation.talk_about_restaurant()
