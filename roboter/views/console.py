@@ -42,6 +42,7 @@ def find_template(template_file):
         raise NoTemplateError('Could not find {}'.format(temp_file))
     return temp_file_path
 
+
 def get_template(template_file_path, color=None):
     """Return the path of the template.
 
