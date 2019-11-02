@@ -1,7 +1,8 @@
 import os
 import string
 
-from termcolor import colored
+#import termcolor
+
 
 def get_template_dir_path():
     """Return the path of the template's directory
@@ -27,7 +28,7 @@ def get_template_dir_path():
 class NoTemplateError(Exception):
     """No Template Error"""
 
-def find_template(template_file):
+def find_template(temp_file):
     """Find for template file in the given location.
 
     Returns:
@@ -38,7 +39,7 @@ def find_template(template_file):
     """
     template_dir_path = get_template_dir_path()
     temp_file_path = os.path.join(template_dir_path, temp_file)
-    if not os.path.exists(template_dir_path):
+    if not os.path.exists(temp_file_path):
         raise NoTemplateError('Could not find {}'.format(temp_file))
     return temp_file_path
 
@@ -54,8 +55,7 @@ def get_template(template_file_path, color=None):
     with open(template, 'r') as template_file:
         contents = template_file.read()
         contents = contents.rstrip('\n')
-        contents = '{spliter}\n{contents}\n{spliter}\n'.format(
-            contens = contents, spliter = "=" * 60
-        )
-        contents = colored(contents, color)
+        contents = '{spliter}{sep}{contents}{sep}{spliter}{sep}'.format(
+            contents = contents, spliter ="=" * 60, sep=os.linesep)
+        #contents = termcolor.colored(contents, color)
         return string.Template(contents)
